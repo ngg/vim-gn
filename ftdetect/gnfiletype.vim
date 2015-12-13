@@ -13,7 +13,7 @@ function! s:gnfiletype_pre()
   let s:current_fileformats = &g:fileformats
   let s:current_fileencodings = &g:fileencodings
   set fileencodings=utf-8 fileformats=unix
-  setlocal filetype=gn
+  setlocal filetype=gn tabstop=2 shiftwidth=2 expandtab
 endfunction
 
 " restore fileencodings as others
@@ -22,6 +22,6 @@ function! s:gnfiletype_post()
   let &g:fileencodings = s:current_fileencodings
 endfunction
 
-au BufNewFile *.gn,*.gni setlocal filetype=gn fileencoding=utf-8 fileformat=unix
+au BufNewFile *.gn,*.gni setlocal filetype=gn fileencoding=utf-8 fileformat=unix tabstop=2 shiftwidth=2 expandtab
 au BufRead *.gn,*.gni call s:gnfiletype_pre()
 au BufReadPost *.gn,*.gni call s:gnfiletype_post()
